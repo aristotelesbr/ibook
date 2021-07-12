@@ -22,6 +22,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/hello.client'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -34,8 +35,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    baseUrl: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
